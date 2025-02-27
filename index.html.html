@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepMind AI Solutions</title>
+    <style>
+        /* 自定义CSS - 科技感主题 */
+        :root {
+            --primary-blue: #0A1E3C;
+            --neon-cyan: #00FFE0;
+            --gradient-purple: linear-gradient(45deg, #6C63FF, #3A1C71);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        .navbar {
+            background: rgba(10, 30, 60, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+
+        .navbar a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover {
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-purple);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { text-align: center; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+    <!-- 加载Google字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <a href="#home">首页</a>
+        <a href="#products">产品</a>
+        <a href="#demo">AI演示</a>
+        <a href="#contact">联系</a>
+    </nav>
+
+    <!-- 主页Hero区域 -->
+    <section class="hero" id="home">
+        <div>
+            <h1>用AI重塑未来</h1>
+            <p>领先的机器学习与自然语言处理解决方案</p>
+            <button onclick="location.href='#contact'">获取演示</button>
+        </div>
+    </section>
+
+    <!-- 产品功能卡片 -->
+    <section class="features" id="products">
+        <div class="card">
+            <h3>智能预测引擎</h3>
+            <p>基于深度学习的实时业务预测系统</p>
+        </div>
+        <div class="card">
+            <h3>自然语言处理</h3>
+            <p>多语言文本分析与生成API</p>
+        </div>
+        <div class="card">
+            <h3>计算机视觉</h3>
+            <p>工业级图像识别与视频分析</p>
+        </div>
+    </section>
+
+    <!-- 联系表单 -->
+    <section id="contact" style="padding: 4rem 2rem; text-align: center;">
+        <h2>联系我们</h2>
+        <form onsubmit="alert('请求已提交！'); return false;">
+            <input type="email" placeholder="您的邮箱" required>
+            <textarea placeholder="留言..." rows="4" required></textarea>
+            <button type="submit">发送</button>
+        </form>
+    </section>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 动态卡片加载效果
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
